@@ -21,12 +21,14 @@ class GuestbookController extends Controller
         $name = htmlspecialchars(trim($request->input('name')));
 
         if (empty($name) || empty($message)) {
-            return redirect('/guestbook')->with('error', 'Both fields are required!');
+            $error = 'Both fields are required';
+            return view('guestbook.index', compact('error'));
         }
         
         // Check if the message contains any prohibited word
         if(Str::contains($message, ProhibitedWords::all()->pluck('word')) || Str::contains($name, ProhibitedWords::all()->pluck('word'))) {
-            return redirect('/guestbook')->with('error', 'Please do not use any inappropriate words');
+            $error = 'Please do not use any inappropriate words';
+            return view('guestbook.index', compact('error'));
         }
 
         // Save the message to the database
