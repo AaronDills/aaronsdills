@@ -10,6 +10,103 @@
 </head>
 <body>
 
+<style>
+    body {
+        font-family: 'Poppins', sans-serif; /* Rounded font */
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        width: 100%;
+        max-width: 700px;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.5rem;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    p {
+        font-size: 1rem;
+        color: #555;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    input[type="text"], textarea {
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        outline: none;
+        transition: border 0.3s ease;
+    }
+    input[type="text"]:focus, textarea:focus {
+        border: 1px solid #007bff;
+    }
+    input[type="submit"] {
+        padding: 14px;
+        font-size: 1.1rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .messages {
+        margin-top: 30px;
+        text-align: left;
+    }
+    .message {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+    }
+    .message span {
+        display: block;
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 10px;
+    }
+    .error {
+        color: red;
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+    .empty-msg {
+        font-style: italic;
+        color: #aaa;
+    }
+    footer {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+</style>
+
 <div class="container">
     <h1>Welcome to the Guestbook!</h1>
 
