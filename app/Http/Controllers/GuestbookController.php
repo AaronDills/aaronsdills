@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Guestbook;
+use App\Models\ProhibitedWords;
 
 class GuestbookController extends Controller
 {
@@ -23,7 +25,7 @@ class GuestbookController extends Controller
         }
         
         // Check if the message contains any prohibited words
-        foreach ($prohibitedWords as $record) {
+        foreach (ProhibitedWords::all() as $record) {
             if (strpos($message, $record->word) !== false || strpos($name, $record->word) !== false) {
                 $prohibitedWordUsed = true;
                 break;
