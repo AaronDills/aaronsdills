@@ -26,7 +26,7 @@ class GuestbookController extends Controller
         }
         
         // Check if the message contains any prohibited word
-        if(Str::contains($message, ProhibitedWords::all()->pluck('word')) || Str::contains($name, ProhibitedWords::all()->pluck('word'))) {
+        if(Str::contains(strtolower($message), ProhibitedWords::all()->pluck('word')) || Str::contains(strtolower($name), ProhibitedWords::all()->pluck('word'))) {
             $error = 'Please do not use any inappropriate words';
             return view('guestbook.index', compact('error'));
         }
