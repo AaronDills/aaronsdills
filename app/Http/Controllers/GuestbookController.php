@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Guestbook;
 use App\Models\ProhibitedWords;
-
+use Illuminate\Support\Str;
 class GuestbookController extends Controller
 {
     public function index()
@@ -24,17 +24,9 @@ class GuestbookController extends Controller
             return redirect('/guestbook')->with('error', 'Both fields are required!');
         }
         
-        $prohibitedWordUsed = false;
-        // Check if the message contains any prohibited words
-        foreach (ProhibitedWords::all() as $record) {
-            if (strpos($message, $record->word) !== false || strpos($name, $record->word) !== false) {
-                $prohibitedWordUsed = true;
-                break;
-            }
-        }
-    
-        if ($prohibitedWordUsed) {
-           return redirect('/guestbook')->with('error', 'Prohibited word detected: ' . $record->word);
+        // Check if the message contains any prohibited word
+        if(Str::contains($message, ProhibitedWords::all()->pluck('word')) || Str::contains($name, ProhibitedWords::all()->pluck('word'))) {
+            return redirect('/guestbook')->with('error', 'Please do not use any inappropriate words');
         }
 
         // Save the message to the database
