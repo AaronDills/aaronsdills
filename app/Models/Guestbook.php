@@ -20,4 +20,6 @@ class Guestbook extends Model
      */
     protected $primaryKey = 'id';
 
+    protected $fillable = ['name', 'message'];
+
 }
