@@ -24,6 +24,7 @@ class GuestbookController extends Controller
             return redirect('/guestbook')->with('error', 'Both fields are required!');
         }
         
+        $prohibitedWordUsed = false;
         // Check if the message contains any prohibited words
         foreach (ProhibitedWords::all() as $record) {
             if (strpos($message, $record->word) !== false || strpos($name, $record->word) !== false) {
