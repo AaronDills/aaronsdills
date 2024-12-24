@@ -6,6 +6,7 @@
     <title>Guestbook</title>
     <!-- Google Fonts for rounded fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="/resources/css/guestbook.css" rel="stylesheet">
 </head>
 <body>
 
@@ -126,9 +127,9 @@
         <?php if (!empty($messages)): ?>
             <?php foreach ($messages as $msg): ?>
                 <div class="message">
-                    <?php echo "<b>" .  nl2br($msg->name) . ":</b>"; ?>
+                    <?php echo nl2br($msg->name); ?>
                     <?php echo nl2br($msg->message); ?>
-                    <span><?php echo $msg->created_at->format('m/d/Y'); ?></span>
+                    <span><?php echo "Visit date: "$msg->created_at->format('xH:i m/d/Y'); ?></span>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
