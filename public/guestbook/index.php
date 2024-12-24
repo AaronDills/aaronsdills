@@ -1,6 +1,9 @@
 <?php
 
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 use App\Models\Guestbook;
+use App\Models\ProhibitedWords;
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
