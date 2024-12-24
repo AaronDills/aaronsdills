@@ -127,7 +127,9 @@
         <?php if (!empty($messages)): ?>
             <?php foreach ($messages as $msg): ?>
                 <div class="message">
-                    <?php echo nl2br($msg); ?>
+                    <?php echo nl2br($msg->name); ?>
+                    <?php echo nl2br($msg->message); ?>
+                    <span><?php echo $msg->created_at->format('Y-m-d H:i:s'); ?></span>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

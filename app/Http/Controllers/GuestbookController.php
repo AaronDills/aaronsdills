@@ -10,7 +10,7 @@ class GuestbookController extends Controller
 {
     public function index()
     {
-        $messages = Guestbook::all();
+        $messages = Guestbook::all()->sortByDesc('created_at')->take(10);
         $prohibitedWords = ProhibitedWords::all();
         return view('guestbook.index', compact('messages', 'prohibitedWords'));
     }
