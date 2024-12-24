@@ -22,13 +22,15 @@ class GuestbookController extends Controller
 
         if (empty($name) || empty($message)) {
             $error = 'Both fields are required';
-            return view('guestbook.index', compact('error'));
+            $messages = Guestbook::all()->sortByDesc('created_at')->take(10);
+            return view('guestbook.index', compact('error', 'messages'));
         }
         
         // Check if the message contains any prohibited word
         if(Str::contains(strtolower($message), ProhibitedWords::all()->pluck('word')) || Str::contains(strtolower($name), ProhibitedWords::all()->pluck('word'))) {
             $error = 'Please do not use any inappropriate words';
-            return view('guestbook.index', compact('error'));
+            $messages = Guestbook::all()->sortByDesc('created_at')->take(10);
+            return view('guestbook.index', compact('error', 'messages'));
         }
 
         // Save the message to the database
