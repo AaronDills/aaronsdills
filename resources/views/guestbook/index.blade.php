@@ -114,7 +114,8 @@
         <p class="error"><?php echo $errorMessage; ?></p>
     <?php endif; ?>
 
-    <form action="guestbook.php" method="post">
+    <form action="/guestbook" method="post">
+	@csrf <!-- {{ csrf_field() }} -->
         <input type="text" name="name" placeholder="Your Name" required>
         <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
         <input type="submit" value="Sign the Guestbook">
