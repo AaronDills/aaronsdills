@@ -109,8 +109,8 @@
 <div class="container">
     <h1>Welcome to the Guestbook!</h1>
 
-    <?php if (isset($errorMessage)): ?>
-        <p class="error"><?php echo $errorMessage; ?></p>
+    <?php if (isset($error)): ?>
+        <p class="error"><?php echo $error; ?></p>
     <?php endif; ?>
 
     <form action="/guestbook" method="post">
