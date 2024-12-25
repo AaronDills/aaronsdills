@@ -36,5 +36,6 @@ class ProhibitedWordsSeeder extends Seeder
         ProhibitedWords::create(['word' => 'trash']);
         ProhibitedWords::create(['word' => 'bad']);
         ProhibitedWords::create(['word' => 'ass']);
+        ProhibitedWords::create(['word' => 'hitler']);
     }
 }
